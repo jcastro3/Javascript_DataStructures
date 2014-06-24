@@ -2,24 +2,36 @@
     <title></title>    
     <head>
         <script src="Stack.js"></script>
+        <script src="UI.js"></script>
+        <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
-     
-        <input id="stack_data" name="my_data" type="text" autofocus >
-        <input type="button" onclick="pushValue()" value="PUSH" >
-        <input type="button" onclick="popValue()" value="POP" >
-        <input type="button" onclick="peekValue()" value="PEEK" >
-        <table id="stackTable">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-        
-        <table id="popTable">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-        
+         
+            <input id="stack_data" name="my_data" type="text" autofocus >
+            <input type="button" onclick="pushValue()" value="PUSH" >
+            <input type="button" onclick="popValue()" value="POP" >
+            <input type="button" onclick="peekValue()" value="PEEK" >
+<div class="container">
+            <table  class="stack">
+               <thead><th>Currently on Stack</th></thead>
+               <tbody id="stackTable">
+                <tr>
+                    <td></td>
+                </tr>
+               </tbody>
+                
+            </table>
+
+            <table class="pop">
+                <thead><th>Pushed out Elem</th></thead>
+               <tbody id="popTable">
+                <tr>
+                    <td></td>
+                </tr>
+               </tbody>
+            </table>
+            
+            
+        </div>
     </body>
 </html>

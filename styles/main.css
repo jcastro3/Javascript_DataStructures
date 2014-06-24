@@ -1,0 +1,29 @@
+
+.container{
+    width: 500px;
+    min-height: 600px;
+    margin-top: 15px;
+}
+
+.stack, .pop{
+    
+    display: inline-block;
+    width: 30%;
+    margin: 5px;
+}
+
+.stack {
+    background-color: #ccc;
+}
+
+.pop {
+    background-color: #ccf;
+}
+
+
+
+
+table, tr, td {
+    border: 1px solid black;
+    text-align: center;
+}
