@@ -1,5 +1,5 @@
 'use strict';
-
+var stack = new Stack();
 function Node(data, next) {
     this.data = data;
     this.next = next;
@@ -12,10 +12,13 @@ function Stack() {
     
     this.push = function (data) {
         
-        this.next = this.top; 
-        var n = new Node (data, this.next);   
+        
+        this.next = this.top;
+        var n = new Node (data, this.next);
         this.top = n;
         this.size++;
+        console.log(this);
+        
         
     };
     
@@ -29,23 +32,36 @@ function Stack() {
     };
     
     this.isEmpty = function () {
-    
+        return this.top == null
     };
     
     this.getSize = function () {
         return this.size;
     };
     
+    this.peek = function () {
+        return this.top.data;
+    }
+    
 }
 
 
+function pushValue(){
+    var stack_data = document.getElementById('stack_data');
+    var data = stack_data.value;
+    stack.push(data);
 
-var mystack = new Stack();
+}
 
-mystack.push('hola');
-mystack.push('hello');
-mystack.push('salut');
-var kicked = mystack.pop();
-console.log("this greeting was kicked " + kicked);
 
-console.log(mystack);
+//mystack.push('hola');
+//mystack.push('hello');
+//mystack.push('salut');
+//var kicked = mystack.pop();
+//var peek = mystack.peek();
+//console.log("this greeting was kicked " + kicked);
+//console.log("first element in the stack " + peek);
+//
+//console.log(mystack);
+
+
