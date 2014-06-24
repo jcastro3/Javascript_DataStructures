@@ -7,10 +7,19 @@
      
         <input id="stack_data" name="my_data" type="text" autofocus >
         <input type="button" onclick="pushValue()" value="PUSH" >
-        <button>POP</button>
-        <button>PEEK</button>
-        <div id="stack_data"></div>  
-    
+        <input type="button" onclick="popValue()" value="POP" >
+        <input type="button" onclick="peekValue()" value="PEEK" >
+        <table id="stackTable">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        
+        <table id="popTable">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
         
     </body>
 </html>

@@ -1,5 +1,6 @@
 'use strict';
 var stack = new Stack();
+
 function Node(data, next) {
     this.data = data;
     this.next = next;
@@ -17,22 +18,23 @@ function Stack() {
         var n = new Node (data, this.next);
         this.top = n;
         this.size++;
-        console.log(this);
+//        console.log(this);
         
         
     };
     
     this.pop = function () {
         
-        var tmp = this.top.data;
-        this.top = this.next;
+        var tmp = this.top.data;   
+        this.top = this.top.next;
+        
         this.size--;
         return tmp;
         
     };
     
     this.isEmpty = function () {
-        return this.top == null
+       return this.top === null;
     };
     
     this.getSize = function () {
@@ -46,13 +48,44 @@ function Stack() {
 }
 
 
-function pushValue(){
-    var stack_data = document.getElementById('stack_data');
-    var data = stack_data.value;
-    stack.push(data);
-
+function pushValue () {
+    
+        var stack_data = document.getElementById('stack_data').value;
+        stack.push(stack_data);
+        var t1 = document.getElementById('stackTable');
+        var row = t1.insertRow(0);
+        var cell = row.insertCell(0);
+        cell.innerHTML = stack_data;
+        document.getElementById('stack_data').value = "";
+    
+    
 }
 
+function popValue () {
+    if (!stack.isEmpty()) {
+        var pop = stack.pop();
+        var t2 = document.getElementById('popTable');
+        var row = t2.insertRow(0);
+        var cell = row.insertCell(0);
+        cell.innerHTML = pop;
+        document.getElementById('stackTable').deleteRow(0);
+    }
+    else {
+        alert('the stack is empty!!');
+    }
+    
+    
+}
+
+function peekValue (){
+    if (!stack.isEmpty()) {
+    var peek = stack.peek();
+    console.log(peek);
+    }
+    else {
+        alert('the stack is empty!!');
+    }
+}
 
 //mystack.push('hola');
 //mystack.push('hello');
