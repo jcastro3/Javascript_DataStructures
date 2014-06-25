@@ -12,10 +12,9 @@ function Stack() {
     this.top = null;
     
     this.push = function (data) {
-        
-        
+     
+        var n = new Node (data, this.top);
         this.next = this.top;
-        var n = new Node (data, this.next);
         this.top = n;
         this.size++;
 
