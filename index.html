@@ -1,37 +1,29 @@
 <html>
     <title></title>    
     <head>
-        <script src="Stack.js"></script>
-        <script src="UI.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js" ></script>
+        <script src="Nodes.js" type="text/javascript"></script>
+        <script src="Queue.js" type="text/javascript"></script>
+        <script src="Stack.js" type="text/javascript"></script>
+        <script src="UI.js" type="text/javascript"></script>
+        
         <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
          
-            <input id="stack_data" name="my_data" type="text" autofocus >
-            <input type="button" onclick="pushValue()" value="PUSH" >
-            <input type="button" onclick="popValue()" value="POP" >
-            <input type="button" onclick="peekValue()" value="PEEK" >
-<div class="container">
-            <table  class="stack">
-               <thead><th>Currently on Stack</th></thead>
-               <tbody id="stackTable">
-                <tr>
-                    <td></td>
-                </tr>
-               </tbody>
-                
-            </table>
-
-            <table class="pop">
-                <thead><th>Pushed out Elem</th></thead>
-               <tbody id="popTable">
-                <tr>
-                    <td></td>
-                </tr>
-               </tbody>
-            </table>
-            
-            
+        <input id="value" name="my_data" type="text" autofocus >
+        <input id="push_btn" type="button" value="PUSH" >
+        <input id="pop_btn" type="button"  value="POP" >
+        <input id="peek_btn" type="button"  value="PEEK" >
+        
+        <div class="container">
+            <ul >
+            </ul>
         </div>
+        
+        <script>
+             
+        </script>
+        
     </body>
 </html>

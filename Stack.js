@@ -1,47 +1,53 @@
 'use strict';
 
-
-function Node(data, next) {
-    this.data = data;
-    this.next = next;
-}
-
-function Stack() {
-    this.size = 0;
-    this.next = null;
-    this.top = null;
+var Stack = function () {
     
-    this.push = function (data) {
-     
-        var n = new Node (data, this.top);
-        this.next = this.top;
-        this.top = n;
-        this.size++;
-
-    };
+    var size = 0,
+        top = null,
+        n;
     
-    this.pop = function () {
+    return {
+         
+        push: function (data) {
+          
+            n = new Node (data, this.top);
+            this.top = n;
+            this.size +=1;
+
+        },
         
-        var tmp = this.top.data;   
-        this.top = this.top.next;
+        pop: function () {
+            
+            var tmp = this.top;
+            this.top = this.top.next;
+            this.size -=1;
+            return tmp.data;
         
-        this.size--;
-        return tmp;
+        },
         
+        isEmpty: function () {
+        
+            return this.top === null;
+        
+        },
+        
+        getSize: function () {
+        
+            return this.size;
+        
+        },
+        
+        peek: function () {
+            
+            return this.top.data;
+        }
     };
     
-    this.isEmpty = function () {
-       return this.top === null;
-    };
-    
-    this.getSize = function () {
-        return this.size;
-    };
-    
-    this.peek = function () {
-        return this.top.data;
-    }
-    
-}
+};
 
-var stack = new Stack();
+
+
+//refactor code push function does not need the next, fre up space by setting the tmp to null 
+//create a modular patter using js for the whole stack function 
+//take the function Node and integrate it into a different file have a secuansial access for both Stack and Queue
+//refactor the table tags to ul li list elements.
