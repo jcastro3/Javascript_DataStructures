@@ -1,25 +1,26 @@
 'use strict';
 
+
 var Queue = function() {
     var size = 0,
         front = null,
-        n;
+        back = null;
     return {
         
         enqueue: function(data){
-            n = new Node(data, this.front);
+            var tmp = this.back
+            this.back = new Node(data, null);
             if(this.isEmpty()) {
-                this.front = n;
+                this.front = this.back;
                 size+=1;
+                return;
             }
-            else{
-                this.front.next = n;
+                tmp.next = this.back;
                 size+=1;
-            }
         },
         dequeue: function(){
             var tmp = this.front;
-            this.front = this.front.next;
+            this.front = tmp.next;
             size-=1;
             return tmp.data;
         },
