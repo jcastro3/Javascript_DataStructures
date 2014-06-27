@@ -1,40 +1,60 @@
-'use strict';
 
 
-var Queue = function() {
+
+var Queue = function () {
+    'use strict';
     var size = 0,
         front = null,
-        back = null;
-    return {
+        back = null,
+        n;
+    
+};
+   
+Queue.prototype = (function () {
+    'use strict';
+    var enqueue = function (data) {
         
-        enqueue: function(data){
-            var tmp = this.back
+            var tmp = this.back;
             this.back = new Node(data, null);
-            if(this.isEmpty()) {
+            if (this.isEmpty()) {
                 this.front = this.back;
-                size+=1;
+                this.size += 1;
                 return;
             }
-                tmp.next = this.back;
-                size+=1;
+            tmp.next = this.back;
+            this.size += 1;
+        
         },
-        dequeue: function(){
+        dequeue = function () {
+            
             var tmp = this.front;
             this.front = tmp.next;
-            size-=1;
+            this.size -= 1;
             return tmp.data;
+            
         },
-        peek: function(){
+        peek = function () {
+            
             return this.front.data;
         },
-        isEmpty: function(){
-           return this.front == null; 
+        isEmpty = function () {
+            
+            return !this.front;
+            
         },
-        getSize: function(){
-           return size;
-        }
-        
+        getSize = function () {
+            
+            return this.size;
+            
+        };
+    
+    return {
+        enqueue: enqueue,
+        dequeue: dequeue,
+        peek: peek,
+        isEmpty: isEmpty,
+        getSize: getSize
     };
-};
+}());
 
 

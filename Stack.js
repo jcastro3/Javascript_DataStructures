@@ -1,49 +1,58 @@
-'use strict';
-
 var Stack = function () {
-    
+    'use strict';
     var size = 0,
         top = null,
         n;
+
+};
+
+Stack.prototype = (function () {
+    'use strict';
     
-    return {
-         
-        push: function (data) {
+    var push = function (data) {
           
-            n = new Node (data, this.top);
+            var n = new Node(data, this.top);
             this.top = n;
-            size +=1;
+            this.size += 1;
 
         },
         
-        pop: function () {
+        pop = function () {
             
             var tmp = this.top;
             this.top = this.top.next;
-            size -=1;
+            this.size -= 1;
             return tmp.data;
         
         },
         
-        isEmpty: function () {
+        isEmpty = function () {
         
-            return this.top == null;
-        
-        },
-        
-        getSize: function () {
-        
-            return size;
+            return !this.top;
         
         },
         
-        peek: function () {
+        getSize = function () {
+        
+            return this.size;
+        
+        },
+        
+        peek = function () {
             
             return this.top.data;
-        }
+        };
+    
+    return {
+        push: push,
+        pop: pop,
+        isEmpty: isEmpty,
+        getSize: getSize,
+        peek: peek
     };
     
-};
+    
+}());
 
 
 

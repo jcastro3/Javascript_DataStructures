@@ -1,6 +1,7 @@
 
 var queue = new Queue();
 var stack = new Stack();
+
 $(document).ready(function(){
     
     $('#push_btn').click(function(){
@@ -25,22 +26,22 @@ $(document).ready(function(){
         
     });
     
-    $('#peek_btn').click(function(){
+    $('#peek_btn').click(function () {
         var peek;
-        if(!stack.isEmpty()) {
+        if (!stack.isEmpty()) {
             peek = stack.peek();
             console.log(peek);
             alert('current value in top is: ' + peek.text());
         }
         else {
-            alert('the stack is empty!!');
+                alert('the stack is empty!!');
         }
         $('#stack_value').val('');
     });
     
         $('#enqueue_btn').click(function(){
         var queue_val = $('#queue_value').val();
-        if(queue_val === '') return alert('empty field, please insert value');
+        if (queue_val === '') return alert('empty field, please insert value');
         var item = $('<li>' + queue_val + '</li>');
         queue.enqueue(item);
         $('#queue_ul').append(item);
@@ -50,8 +51,8 @@ $(document).ready(function(){
     $('#dequeue_btn').click(function(){
         var dequeue;
         if (!queue.isEmpty()) {
-           dequeue = queue.dequeue();
-           dequeue.remove();
+            dequeue = queue.dequeue();
+            dequeue.remove();
         }
         else {
             alert('the stack is empty!!');
