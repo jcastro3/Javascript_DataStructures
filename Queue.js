@@ -8,7 +8,10 @@ var Queue = function() {
         
         enqueue: function(data){
             n = new Node(data, this.front);
-            if(this.isEmpty()) this.front = n;
+            if(this.isEmpty()) {
+                this.front = n;
+                size+=1;
+            }
             else{
                 this.front.next = n;
                 size+=1;
@@ -27,7 +30,7 @@ var Queue = function() {
            return this.front == null; 
         },
         getSize: function(){
-           return this.size;
+           return size;
         }
         
     };

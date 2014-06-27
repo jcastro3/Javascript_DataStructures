@@ -11,19 +11,32 @@
     </head>
     <body>
          
-        <input id="value" name="my_data" type="text" autofocus >
-        <input id="push_btn" type="button" value="PUSH" >
-        <input id="pop_btn" type="button"  value="POP" >
-        <input id="peek_btn" type="button"  value="PEEK" >
         
-        <div class="container">
-            <ul >
-            </ul>
+    <div class="main_container">
+        <div class="stack_container">
+           <h1 class="s_h1">Stack</h1>
+            <input id="stack_value"  type="text" autofocus >
+            <input id="push_btn" type="button" value="PUSH" >
+            <input id="pop_btn" type="button"  value="POP" >
+            <input id="peek_btn" type="button"  value="PEEK" >
+            
+            <div class="list">
+                <ul id="stack_ul"><!--content goes here--></ul>
+            </div>
         </div>
         
-        <script>
-             
-        </script>
+        <div class="queue_container">
+           <h1 class="q_h1">Queue</h1>
+            <input id="queue_value"  type="text" autofocus >
+            <input id="enqueue_btn" type="button" value="ENQUEUE" >
+            <input id="dequeue_btn" type="button"  value="DEQUEUE" >
+            <input id="peek_btn2" type="button"  value="PEEK" >
+            
+            <div class="list">
+                <ul id="queue_ul"><!--content goes here--></ul>
+            </div>
+        </div>
+     </div>  
         
     </body>
 </html>

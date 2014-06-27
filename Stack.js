@@ -12,7 +12,7 @@ var Stack = function () {
           
             n = new Node (data, this.top);
             this.top = n;
-            this.size +=1;
+            size +=1;
 
         },
         
@@ -20,20 +20,20 @@ var Stack = function () {
             
             var tmp = this.top;
             this.top = this.top.next;
-            this.size -=1;
+            size -=1;
             return tmp.data;
         
         },
         
         isEmpty: function () {
         
-            return this.top === null;
+            return this.top == null;
         
         },
         
         getSize: function () {
         
-            return this.size;
+            return size;
         
         },
         
