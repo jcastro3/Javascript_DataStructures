@@ -1,8 +1,9 @@
 var Stack = function () {
     'use strict';
-    var size = 0,
-        top = null,
+    var top = null,
         n;
+    
+    this.size = 0;
 
 };
 
@@ -44,7 +45,7 @@ Stack.prototype = (function () {
         };
     
     return {
-        push: push,
+      push: push,
         pop: pop,
         isEmpty: isEmpty,
         getSize: getSize,
