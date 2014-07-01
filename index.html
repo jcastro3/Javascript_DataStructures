@@ -1,11 +1,7 @@
 <html>
     <title>STACK AND QUEUE CREATOR</title>    
     <head>
-        <script src="//code.jquery.com/jquery-1.11.0.min.js" ></script>
-        <script src="Nodes.js" type="text/javascript"></script>
-        <script src="Queue.js" type="text/javascript"></script>
-        <script src="Stack.js" type="text/javascript"></script>
-        <script src="UI.js" type="text/javascript"></script>
+      
         
         <link rel="stylesheet" href="styles/main.css">
     </head>
@@ -15,15 +11,17 @@
     <div class="main_container">
       
        <!--CREATE STACK OR QUEUE-->
-       <div class="create_container">
-           <input id="create_newInstance" type="text">
-           <input id="create_btn" type="button" value="CREATE">
+       <div class="top_container">
+           <div class="create_container">
+               <input id="create_newInstance" type="text">
+               <input id="create_btn" type="button" value="CREATE">
+           </div>
        </div>
        
        
         <!--STACK-->
         <div class="stack_container">
-           <h1 class="s_h1">Stack</h1>
+           <h1 class="s_h1">Stack: <span class="new_name"></span></h1>
             <input id="stack_value"  type="text" autofocus >
             <input id="push_btn" type="button" value="PUSH" >
             <input id="pop_btn" type="button"  value="POP" >
@@ -37,7 +35,7 @@
         
         <!--QUEUE -->
         <div class="queue_container">
-           <h1 class="q_h1">Queue</h1>
+           <h1 class="q_h1">Queue: <span class="new_name"></span></h1>
             <input id="queue_value"  type="text" autofocus >
             <input id="enqueue_btn" type="button" value="ENQUEUE" >
             <input id="dequeue_btn" type="button"  value="DEQUEUE" >
@@ -49,6 +47,22 @@
         </div>
         
         
-     </div>      
+     </div>
+     
+    <!--  TODO MOVE STYLES TO MAIN.CSS-->
+     <div class="left_container" style="background-color: #F6FAC4">
+        <div class="top_container" style="background-color: #829EAC; color:white; text-align: center; font-size:25px;">
+            <span style="position:relative; top:10px;"> List of Stack and Queue Objects</span>
+        </div>
+        <div class="obj_list">
+            <ul id="obj_ul"></ul>
+        </div>
+    </div>
+    
+       <script src="//code.jquery.com/jquery-1.11.0.min.js" ></script>
+        <script src="Nodes.js" type="text/javascript"></script>
+        <script src="Queue.js" type="text/javascript"></script>
+        <script src="Stack.js" type="text/javascript"></script>
+        <script src="UI.js" type="text/javascript"></script>
     </body>
 </html>

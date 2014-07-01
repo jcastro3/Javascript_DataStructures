@@ -1,60 +1,66 @@
-var Stack = function () {
+var collections = (function (ns) {
     'use strict';
-    var top = null,
-        n;
-    
-    this.size = 0;
+    function Stack() {
+        var top = null,
+            n;
 
-};
+        this.size = 0;
 
-Stack.prototype = (function () {
-    'use strict';
+    }
+
+    Stack.prototype = (function () {
     
-    var push = function (data) {
+        function push(data) {
           
             var n = new Node(data, this.top);
             this.top = n;
             this.size += 1;
 
-        },
+        }
         
-        pop = function () {
+        function pop() {
             
             var tmp = this.top;
             this.top = this.top.next;
             this.size -= 1;
             return tmp.data;
         
-        },
+        }
         
-        isEmpty = function () {
+        function isEmpty() {
         
             return !this.top;
         
-        },
+        }
         
-        getSize = function () {
+        function getSize() {
         
             return this.size;
         
-        },
+        }
         
-        peek = function () {
+        function peek() {
             
             return this.top.data;
+        }
+        
+        function getAll() {
+            
+            var tmp = this.top;
+        }
+        
+        return {
+            push: push,
+            pop: pop,
+            isEmpty: isEmpty,
+            getSize: getSize,
+            peek: peek
         };
+    }());
     
-    return {
-      push: push,
-        pop: pop,
-        isEmpty: isEmpty,
-        getSize: getSize,
-        peek: peek
-    };
-    
-    
-}());
-
+    ns.Stack = Stack;
+    return ns;
+}(collections || {}));
 
 
 //refactor code push function does not need the next, fre up space by setting the tmp to null 

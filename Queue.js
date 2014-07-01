@@ -1,18 +1,16 @@
 
-
-
-var Queue = function () {
+var collections = (function (ns) {
     'use strict';
-    var size = 0,
-        front = null,
-        back = null,
-        n;
-    
-};
+    function Queue() {
+        var front = null,
+            back = null,
+            n;
+        this.size = 0;
+    }
    
-Queue.prototype = (function () {
-    'use strict';
-    var enqueue = function (data) {
+    Queue.prototype = (function () {
+    
+        function enqueue(data) {
         
             var tmp = this.back;
             this.back = new Node(data, null);
@@ -24,37 +22,46 @@ Queue.prototype = (function () {
             tmp.next = this.back;
             this.size += 1;
         
-        },
-        dequeue = function () {
+        }
+    
+        function dequeue() {
             
             var tmp = this.front;
             this.front = tmp.next;
             this.size -= 1;
             return tmp.data;
             
-        },
-        peek = function () {
+        }
+        function peek() {
             
             return this.front.data;
-        },
-        isEmpty = function () {
+        }
+    
+        function isEmpty() {
             
             return !this.front;
             
-        },
-        getSize = function () {
+        }
+    
+        function getSize() {
             
             return this.size;
             
-        };
+        }
     
-    return {
-        enqueue: enqueue,
-        dequeue: dequeue,
-        peek: peek,
-        isEmpty: isEmpty,
-        getSize: getSize
-    };
-}());
+        return {
+            enqueue: enqueue,
+            dequeue: dequeue,
+            peek: peek,
+            isEmpty: isEmpty,
+            getSize: getSize
+        };
+        
+    }());
+    
+    ns.Queue = Queue;
+    return ns;
+    
+}(collections || {}));
 
 

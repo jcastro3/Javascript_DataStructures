@@ -5,7 +5,34 @@
     background-color: #eee;
     border-radius: 10px;
     border: 1px solid grey;
-    margin: auto;  
+    display: inline-block;
+    float: left;
+
+}
+.left_container {
+    width: 25%;
+    min-height: 600px;
+    background-color: #eee;
+    border-radius: 10px;
+    border: 1px solid grey;
+    float: right;
+    display: inline-block;
+    position: relative;
+    right: 225px;
+
+}
+.top_container{
+  min-height: 50px;
+  width: 100%;
+  background-color: #cce;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid grey;
+}
+.create_container{
+    position: relative;
+    top: 10px;
+    left: 40px;
 }
 
 .stack_container, .queue_container {
@@ -32,7 +59,7 @@
 
 
 
-li {
+#li {
  list-style-type: none;
  align-content: center;
  font-family: sans-serif;
@@ -44,7 +71,9 @@ li {
  margin: 2px;
 }
 
-
+#obj_li {
+cursor: pointer;
+}
 
 .queu_btn, push_btn{ is blue}
 
