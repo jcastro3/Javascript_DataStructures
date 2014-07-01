@@ -1,4 +1,11 @@
-
+body{
+    background-color: #9A96A8;
+     margin: 0;  
+ padding: 0;  
+ padding-top: 10px; 
+ text-align: center;
+    
+}
 .main_container {
     width: 60%;
     min-height: 600px;
@@ -6,19 +13,18 @@
     border-radius: 10px;
     border: 1px solid grey;
     display: inline-block;
-    float: left;
+    
 
 }
 .left_container {
     width: 25%;
     min-height: 600px;
-    background-color: #eee;
     border-radius: 10px;
     border: 1px solid grey;
-    float: right;
     display: inline-block;
-    position: relative;
-    right: 225px;
+    margin-left: 5px;
+    
+    
 
 }
 .top_container{

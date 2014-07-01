@@ -8,13 +8,16 @@ $(document).ready(function () {
     $('#create_btn').click(function () {
         var name,
             key,
-            item;
+            item,
+            selected;
         
         name = $('#create_newInstance').val();
-        
+        selected = $('#typeSelector').val();
+        alert(selected);
         if (name === '') { 
             return alert('empty field, please insert value');
         }
+        
         
         objArray.push({
             key: name,
@@ -44,7 +47,7 @@ $(document).ready(function () {
         var tmp = stack.top;
         $('#stack_ul').text('');
         while (tmp) {
-            $('#stack_ul').append(tmp.data['0'].outerHTML);
+            $('#stack_ul').append(tmp.data);
             tmp = tmp.next;
             
         }
@@ -57,7 +60,7 @@ $(document).ready(function () {
             var tmp = queue.front;
             $('#queue_ul').text('');
             while (tmp) {
-                $('#queue_ul').append(tmp.data['0'].outerHTML);
+                $('#queue_ul').append(tmp.data);
                 tmp = tmp.next;
 
             }
@@ -74,6 +77,7 @@ $(document).ready(function () {
                 queue = objArray[i].queue_val;
                 updateStack(stack);
                 updateQueue(queue);
+                break;
             }
         }
         $(".new_name").text(name);
@@ -98,7 +102,7 @@ $(document).ready(function () {
         if (!stack.isEmpty()) {
             pop = stack.pop();
             pop.remove();
-            updateStack(stack);
+            
         } else {
             alert('the stack is empty!!');
         }
@@ -133,7 +137,6 @@ $(document).ready(function () {
         var dequeue;
         if (!queue.isEmpty()) {
             dequeue = queue.dequeue();
-            updateQueue(queue);
             dequeue.remove();
         } else {
             alert('the stack is empty!!');
