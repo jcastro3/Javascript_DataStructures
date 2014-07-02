@@ -1,6 +1,7 @@
 
 var collections = (function (ns) {
     'use strict';
+    /*jshint validthis: true */
     function Queue() {
         var front = null,
             back = null,

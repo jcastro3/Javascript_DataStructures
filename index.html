@@ -14,7 +14,7 @@
        <div class="top_container">
            <div class="create_container">
                <input id="create_newInstance" type="text">
-               <select name="" id="typeSelector">
+               <select name="" id="typeSelected">
                    <option value="stack">Stack</option>
                    <option value="queue">Queue</option>
                </select>
@@ -25,7 +25,7 @@
        
         <!--STACK-->
         <div class="stack_container">
-           <h1 class="s_h1">Stack: <span class="new_name"></span></h1>
+           <h1 class="s_h1">Stack: <span id="s_name"></span></h1>
             <input id="stack_value"  type="text" autofocus >
             <input id="push_btn" type="button" value="PUSH" >
             <input id="pop_btn" type="button"  value="POP" >
@@ -39,7 +39,7 @@
         
         <!--QUEUE -->
         <div class="queue_container">
-           <h1 class="q_h1">Queue: <span class="new_name"></span></h1>
+           <h1 class="q_h1">Queue: <span id="q_name"></span></h1>
             <input id="queue_value"  type="text" autofocus >
             <input id="enqueue_btn" type="button" value="ENQUEUE" >
             <input id="dequeue_btn" type="button"  value="DEQUEUE" >
@@ -59,7 +59,7 @@
             <span style="position:relative; top:10px;"> List of Stack and Queue Objects</span>
         </div>
         <div class="obj_list">
-            <ul id="obj_ul"></ul>
+            <ul id="obj_ul" class="color_queue"></ul>
         </div>
     </div>
     

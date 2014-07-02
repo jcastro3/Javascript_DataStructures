@@ -5,42 +5,80 @@ var objArray = [],
 $(document).ready(function () {
     'use strict';
     
+    var createNewObj = function (typeSelected, name) {
+        var key;
+        
+        switch (typeSelected) {
+        case 'stack':
+            objArray.push({
+                key: name,
+                type: typeSelected, //stack
+                stack_val: stack = new collections.Stack()
+            });
+                
+            for (key in objArray) {
+                if (objArray[key] === name) {
+                
+                    name = objArray[key].key;
+                    stack = objArray[key].stack_val;
+                    break;
+                
+                }
+            }
+            $("#s_name").text(name);
+            break;
+                
+        case 'queue':
+                
+            objArray.push({
+                key: name,
+                type: typeSelected, //queue
+                queue_val: queue = new collections.Queue()
+            });
+                
+            for (key in objArray) {
+                if (objArray[key] === name) {
+                
+                    name = objArray[key].key;
+                    queue = objArray[key].queue_val;
+                    break;
+                }
+            }
+            $("#q_name").text(name);
+            break;
+                
+        default:
+            alert('Unable to process you petition');
+            
+        }
+    };
+    
     $('#create_btn').click(function () {
         var name,
-            key,
             item,
             selected;
         
         name = $('#create_newInstance').val();
-        selected = $('#typeSelector').val();
-        alert(selected);
-        if (name === '') { 
+        selected = $('#typeSelected').val();
+        
+        if (name === '') {
             return alert('empty field, please insert value');
+        } else {
+            createNewObj(selected, name);
         }
         
-        
-        objArray.push({
-            key: name,
-            stack_val: stack = new collections.Stack(),
-            queue_val: queue = new collections.Queue()
-        });
-        
-        for (key in objArray) {
-            if (objArray[key] === name) {
-                
-                name = objArray[key].key;
-                stack = objArray[key].stack_val;
-                queue = objArray[key].queue_val;
-                
-            }
+        item = $('<li class=obj_li>' + name + '</li>');
+        if (selected === 'stack') {
+            $('#obj_ul').prepend(item);
+            $("#stack_ul").text('');
+        } else {
+            $('#obj_ul').prepend(item);
+            $("#queue_ul").text('');
         }
-        item = $('<li class="obj_li">' + name + '</li>');
-        $('#obj_ul').prepend(item).bind();
-        $(".new_name").text(name);
-        $("#stack_ul").text('');
-        $("#queue_ul").text('');
+        
         $("#create_newInstance").val('');
     });
+    
     
     
     var updateStack = function (stack) {
@@ -51,9 +89,6 @@ $(document).ready(function () {
             tmp = tmp.next;
             
         }
-        
-        
-        
     },
     
         updateQueue = function (queue) {
@@ -72,15 +107,19 @@ $(document).ready(function () {
             name = $(this).text(),
             length = objArray.length;
         for (i = 0; i < length; i += 1) {
-            if (objArray[i].key === name) {
+            if (objArray[i].key === name && objArray[i].type === 'stack') {
                 stack = objArray[i].stack_val;
-                queue = objArray[i].queue_val;
+                $("#s_name").text(name);
                 updateStack(stack);
+                break;
+            } else if (objArray[i].key === name && objArray[i].type === 'queue') {
+                queue = objArray[i].queue_val;
                 updateQueue(queue);
+                $("#q_name").text(name);
                 break;
             }
         }
-        $(".new_name").text(name);
+        
     });
     
     
@@ -123,7 +162,7 @@ $(document).ready(function () {
         $('#stack_value').val('');
     });
     
-    $('#enqueue_btn').click(function(){
+    $('#enqueue_btn').click(function () {
         var queue_val, item;
         queue_val = $('#queue_value').val();
         if (queue_val === '') { return alert('empty field, please insert value');}
@@ -133,7 +172,7 @@ $(document).ready(function () {
         $("#queue_value").val('');
     });
     
-    $('#dequeue_btn').click(function(){
+    $('#dequeue_btn').click(function () {
         var dequeue;
         if (!queue.isEmpty()) {
             dequeue = queue.dequeue();
@@ -145,7 +184,7 @@ $(document).ready(function () {
         
     });
     
-    $('#peek_btn2').click(function(){
+    $('#peek_btn2').click(function () {
         var peek;
         if (!queue.isEmpty()) {
             peek = stack.peek();

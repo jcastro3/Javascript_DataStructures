@@ -1,10 +1,5 @@
 body{
     background-color: #9A96A8;
-     margin: 0;  
- padding: 0;  
- padding-top: 10px; 
- text-align: center;
-    
 }
 .main_container {
     width: 60%;
@@ -13,7 +8,7 @@ body{
     border-radius: 10px;
     border: 1px solid grey;
     display: inline-block;
-    
+    float: left;
 
 }
 .left_container {
@@ -81,6 +76,6 @@ body{
 cursor: pointer;
 }
 
-.queu_btn, push_btn{ is blue}
+
 
 .push_btn{}
