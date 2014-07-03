@@ -13,7 +13,7 @@
        <!--CREATE STACK OR QUEUE-->
        <div class="top_container">
            <div class="create_container">
-               <input id="create_newInstance" type="text">
+               <input id="create_newInstance" class="clearTxt" type="text">
                <select name="" id="typeSelected">
                    <option value="stack">Stack</option>
                    <option value="queue">Queue</option>
@@ -25,12 +25,12 @@
        
         <!--STACK-->
         <div class="stack_container">
-           <h1 class="s_h1">Stack: <span id="s_name"></span></h1>
-            <input id="stack_value"  type="text" autofocus >
+           <h1 class="s_h1">Stack: <span id="stack_name"></span></h1>
+            <input id="stack_value" class="clearTxt"  type="text" autofocus >
             <input id="push_btn" type="button" value="PUSH" >
             <input id="pop_btn" type="button"  value="POP" >
             <input id="peek_btn" type="button"  value="PEEK" >
-            
+        <!--STACK LIST-->
             <div class="list">
                 <ul id="stack_ul"><!--content goes here--></ul>
             </div>
@@ -39,12 +39,12 @@
         
         <!--QUEUE -->
         <div class="queue_container">
-           <h1 class="q_h1">Queue: <span id="q_name"></span></h1>
-            <input id="queue_value"  type="text" autofocus >
+           <h1 class="q_h1">Queue: <span id="queue_name"></span></h1>
+            <input id="queue_value" class="clearTxt" type="text" autofocus >
             <input id="enqueue_btn" type="button" value="ENQUEUE" >
             <input id="dequeue_btn" type="button"  value="DEQUEUE" >
             <input id="peek_btn2" type="button"  value="PEEK" >
-            
+        <!--QUEUE LIST-->
             <div class="list">
                 <ul id="queue_ul"><!--content goes here--></ul>
             </div>

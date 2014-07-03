@@ -3,7 +3,7 @@ var collections = (function (ns) {
     'use strict';
     /*jshint validthis: true */
     function Queue() {
-        var front = null,
+        var top = null,
             back = null,
             n;
         this.size = 0;
@@ -16,7 +16,7 @@ var collections = (function (ns) {
             var tmp = this.back;
             this.back = new Node(data, null);
             if (this.isEmpty()) {
-                this.front = this.back;
+                this.top = this.back;
                 this.size += 1;
                 return;
             }
@@ -27,20 +27,20 @@ var collections = (function (ns) {
     
         function dequeue() {
             
-            var tmp = this.front;
-            this.front = tmp.next;
+            var tmp = this.top;
+            this.top = tmp.next;
             this.size -= 1;
             return tmp.data;
             
         }
         function peek() {
             
-            return this.front.data;
+            return this.top.data;
         }
     
         function isEmpty() {
             
-            return !this.front;
+            return !this.top;
             
         }
     
