@@ -7,28 +7,29 @@ var collections = (function ($, c) {
         }
         //PRIVATE MEMBERS
         function createNewObj(name, typeSelected, item) {
-            var key, tmp, stack;
-
+           
             switch (typeSelected) {
+                    
             case 'stack':
+                    
                 item.data('collection', { type: 'stack', name: name, value: new collections.Stack() });
+                item.css({marginTop: '3px', backgroundColor: '#f0bf5d'});
                 $("#stack_ul").text('');
                 break;
 
             case 'queue':
                 item.data('collection', { type: 'queue', name: name, value: new collections.Queue() });
+                item.css({marginTop: '3px', backgroundColor: '#c5e63a'});
                 $("#queue_ul").text('');
                 break;
 
             default:
                 alert('Unable to process you petition');
-
             }
 
             $('.' + typeSelected + '-active').removeClass(typeSelected + '-active');
             item.addClass(typeSelected + '-active');
             $('#' + typeSelected + '_name').text(name);
-
             $('#obj_ul').prepend(item);
             clearTxt();
 
@@ -48,7 +49,6 @@ var collections = (function ($, c) {
 
         $(document).on('click', '.obj_li', function () {
             var c = $(this).data('collection');
-
             $('.' + c.type + '-active').removeClass(c.type + '-active');
             $(this).addClass(c.type + '-active');
             updateList(c);
@@ -69,7 +69,7 @@ var collections = (function ($, c) {
                 return alert('empty field, please insert value');
             }
 
-            item = $('<li class=obj_li>' + name + ' [' + selected + ']</li>').data('flag', 'on');
+            item = $('<li class=obj_li>' + name + ' [' + selected + ']</li>');
 
             createNewObj(name, selected, item);
 
@@ -86,7 +86,7 @@ var collections = (function ($, c) {
             if (push_val === '') {
                 return alert('empty field, please insert value');
             }
-            item = $('<p id="li">' + push_val + '</p>');
+            item = $('<li id="li_s">' + push_val + '</li>');
             c.push(item);
             $('#stack_ul').prepend(item);
             clearTxt();
@@ -117,7 +117,7 @@ var collections = (function ($, c) {
             } else {
                     alert('the stack is empty!!');
             }
-            $('#stack_value').val('');
+            clearTxt();
         });
 
         $('#enqueue_btn').click(function () {
@@ -128,7 +128,7 @@ var collections = (function ($, c) {
             if (queue_val === '') { 
                 return alert('empty field, please insert value');
             }
-            item = $('<p id="li">' + queue_val + '</p>');
+            item = $('<li id="li_q">' + queue_val + '</li>');
             c.enqueue(item);
             $('#queue_ul').append(item);
             clearTxt();

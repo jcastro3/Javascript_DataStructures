@@ -3,7 +3,4 @@ $(document).ready(function () {
     collections.Stack();
     collections.Queue();
     collections.UI();
-
-
-
 });
